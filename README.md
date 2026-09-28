@@ -43,6 +43,7 @@ Copy `.env.example` to `.env.local` and set:
 - `DATABASE_URL`: PostgreSQL connection string.
 - `BETTER_AUTH_SECRET`: high-entropy secret of at least 32 characters.
 - `BETTER_AUTH_URL`: application base URL, such as `http://localhost:3000`.
+- `BETTER_AUTH_TRUSTED_ORIGINS`: optional comma-separated list of additional application origins, such as `https://social.basecase.me`.
 
 The default setup uses the same PostgreSQL role for migrations and runtime. Never commit `.env.local` or real secrets.
 
@@ -103,7 +104,7 @@ For database-backed integration tests, set `DATABASE_URL` or `TEST_DATABASE_URL`
 
 ## Deployment
 
-Deploy the repository as a Next.js project on Vercel. Set `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `BETTER_AUTH_URL` in the Vercel project environment, run the committed migrations against the production PostgreSQL database, run `npm run db:check`, and deploy.
+Deploy the repository as a Next.js project on Vercel. Set `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, and any additional `BETTER_AUTH_TRUSTED_ORIGINS` values in the Vercel project environment, run the committed migrations against the production PostgreSQL database, run `npm run db:check`, and deploy.
 
 Neon is a suitable hosted PostgreSQL option, but no Neon-specific application code is required.
 
